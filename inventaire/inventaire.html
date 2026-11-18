@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon sac · Maquette v2 M@N</title>
+<!-- Inventaire graphique de la maquette v2 « fragments -> cle -> porte ».
+     Ouvert par le script de la carte avec WA.ui.modal.openModal({ src, allowApi: true }).
+     Lit la variable du joueur « inventaire » et se met a jour en direct.
+     Test hors WorkAdventure : inventaire.html?demo=Fragment%20Rapidit%C3%A9,Fragment%20Fiabilit%C3%A9&nouveau=Fragment%20Fiabilit%C3%A9 -->
+<script src="https://play.workadventu.re/iframe_api.js"></script>
+<style>
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Regular.otf) format('opentype');font-weight:400}
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Bold.otf) format('opentype');font-weight:700}
+:root{--jaune:#FDD12F;--orange:#F39200;--encre:#2E2E2E;--panneau:#1F2633;--case:#2B3445;--case-bord:#4A5568;--texte:#F4F1E8;--doux:#AEB6C4}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:Gordita,system-ui,sans-serif;background:var(--panneau);color:var(--texte);display:flex;flex-direction:column;gap:18px;padding:22px 24px;overflow:auto}
+.entete{display:flex;align-items:center;gap:14px}
+.entete img{width:46px;height:46px}
+.entete h1{margin:0;font-size:20px}
+.entete p{margin:2px 0 0;color:var(--doux);font-size:13px}
+.quete{background:var(--case);border:2px solid var(--case-bord);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.quete strong{font-size:14px}
+.pips{display:flex;gap:6px}
+.pip{width:18px;height:18px;border-radius:50%;border:2px solid var(--jaune);background:transparent}
+.pip.ok{background:var(--jaune);box-shadow:0 0 8px rgba(253,209,47,.7)}
+.quete .etat{margin-left:auto;color:var(--doux);font-size:13px}
+.grille{display:grid;grid-template-columns:repeat(4,minmax(70px,104px));gap:14px;justify-content:center}
+.case{position:relative;aspect-ratio:1;border-radius:14px;background:var(--case);border:3px solid var(--case-bord);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:10px;transition:transform .12s,border-color .12s;font:inherit;color:inherit}
+.case:hover{transform:translateY(-2px)}
+.case:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.case img{width:100%;height:100%;object-fit:contain}
+.case.vide img{filter:brightness(0) invert(1);opacity:.08}
+.case.possede{border-color:var(--jaune);background:radial-gradient(circle at 50% 40%,#3d4659,var(--case))}
+.case.assemble img{opacity:.35}
+.case.mystere{cursor:default;color:#5B6577;font-size:34px;font-weight:700}
+.case.mystere:hover{transform:none}
+.case.choisie{border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,146,0,.35)}
+.badge{position:absolute;top:-10px;right:-10px;background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;border:2px solid var(--panneau)}
+.badge.gris{background:#5B6577}
+.case.nouveau{animation:pulse 1.2s ease-in-out 3}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(253,209,47,0)}50%{box-shadow:0 0 0 8px rgba(253,209,47,.45)}}
+.detail{background:#FFFBEA;color:var(--encre);border-radius:14px;border:3px solid var(--jaune);padding:14px 16px;display:flex;gap:14px;align-items:center;min-height:96px}
+.detail img{width:64px;height:64px;flex:none}
+.detail h2{margin:0 0 4px;font-size:16px}
+.detail p{margin:0;font-size:13px;line-height:1.5}
+.aide{color:var(--doux);font-size:12px;text-align:center;margin:0}
+@media (prefers-reduced-motion:reduce){.case,.case.nouveau{animation:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="entete">
+  <img src="inventaire/sac.png" alt="">
+  <div><h1>Mon sac</h1><p>Les objets que vous avez trouvés dans le Campus M@N</p></div>
+</div>
+<div class="quete" id="quete"></div>
+<div class="grille" id="grille" role="list"></div>
+<div class="detail" id="detail" aria-live="polite"></div>
+<p class="aide">Cliquez sur un objet pour le voir en détail. Les cases « ? » accueilleront les prochains objets.</p>
+<script>
+var CLE = 'Clé du réseau';
+var OBJETS = [
+  { nom: 'Fragment Rapidité', icone: 'inventaire/frag_rapidite.png', fragment: true,
+    desc: "En franchise, vous gagnez les mois de mise au point du concept : vous êtes opérationnel tout de suite." },
+  { nom: 'Fragment Fiabilité', icone: 'inventaire/frag_fiabilite.png', fragment: true,
+    desc: "Vous reproduisez un modèle de réussite et évitez les erreurs de démarrage." },
+  { nom: 'Fragment Efficacité', icone: 'inventaire/frag_efficacite.png', fragment: true,
+    desc: "Les savoir-faire et les outils du réseau sont mutualisés : vous gagnez en efficacité." },
+  { nom: CLE, icone: 'inventaire/cle.png',
+    desc: "Forgée sur l'établi avec les 3 fragments : rapidité, fiabilité et efficacité, les 3 gages de réussite d'une franchise. Elle ouvre la salle des ressources bonus." }
+];
+var NB_CASES = 8;
+var params = new URLSearchParams(location.search);
+var nouveaux = params.get('nouveau') ? [params.get('nouveau')] : [];
+var choisi = params.get('nouveau') || null;
+var inv = [];
+
+function etat(o) {
+  if (inv.indexOf(o.nom) >= 0) return 'possede';
+  if (o.fragment && inv.indexOf(CLE) >= 0) return 'assemble';
+  return 'vide';
+}
+function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+function rendre() {
+  var nbFrag = OBJETS.filter(function (o) { return o.fragment && etat(o) !== 'vide'; }).length;
+  var aCle = inv.indexOf(CLE) >= 0;
+  var q = document.getElementById('quete'); q.replaceChildren();
+  q.appendChild(el('strong', null, 'Quête : la clé du réseau'));
+  var pips = el('div', 'pips');
+  for (var i = 0; i < 3; i++) pips.appendChild(el('span', 'pip' + (i < nbFrag ? ' ok' : '')));
+  q.appendChild(pips);
+  q.appendChild(el('span', 'etat', aCle ? 'Clé forgée : la salle bonus vous attend' : nbFrag === 3 ? "3 / 3 : direction l'établi" : nbFrag + ' / 3 fragments'));
+
+  if (!choisi || OBJETS.every(function (o) { return o.nom !== choisi || etat(o) === 'vide'; })) {
+    var premier = OBJETS.filter(function (o) { return etat(o) === 'possede'; }).pop();
+    choisi = premier ? premier.nom : null;
+  }
+  var g = document.getElementById('grille'); g.replaceChildren();
+  for (var k = 0; k < NB_CASES; k++) {
+    var o = OBJETS[k];
+    if (!o) {
+      var m = el('div', 'case mystere', '?'); m.setAttribute('role', 'listitem'); m.setAttribute('aria-label', 'Objet à découvrir'); g.appendChild(m); continue;
+    }
+    var st = etat(o);
+    var b = el('button', 'case ' + st + (o.nom === choisi && st !== 'vide' ? ' choisie' : '') + (nouveaux.indexOf(o.nom) >= 0 && st === 'possede' ? ' nouveau' : ''));
+    b.type = 'button'; b.setAttribute('role', 'listitem');
+    b.setAttribute('aria-label', st === 'vide' ? 'Case vide' : o.nom + (st === 'assemble' ? ' (assemblé dans la clé)' : ''));
+    var img = el('img'); img.src = o.icone; img.alt = ''; b.appendChild(img);
+    if (st === 'assemble') b.appendChild(el('span', 'badge gris', 'Assemblé'));
+    if (st === 'possede' && nouveaux.indexOf(o.nom) >= 0) b.appendChild(el('span', 'badge', 'Nouveau'));
+    (function (obj, s) { b.addEventListener('click', function () { if (s !== 'vide') { choisi = obj.nom; rendre(); } }); })(o, st);
+    g.appendChild(b);
+  }
+  var d = document.getElementById('detail'); d.replaceChildren();
+  var sel = OBJETS.filter(function (o) { return o.nom === choisi; })[0];
+  if (sel) {
+    var di = el('img'); di.src = sel.icone; di.alt = ''; d.appendChild(di);
+    var t = el('div'); t.appendChild(el('h2', null, sel.nom + (etat(sel) === 'assemble' ? ' (assemblé)' : ''))); t.appendChild(el('p', null, sel.desc)); d.appendChild(t);
+  } else {
+    d.appendChild(el('p', null, "Votre sac est vide pour l'instant. Explorez la salle : 3 fragments de clé y sont cachés."));
+  }
+}
+function majInventaire(v) {
+  var nv = Array.isArray(v) ? v.slice() : [];
+  nv.forEach(function (n) { if (inv.length && inv.indexOf(n) < 0) { nouveaux.push(n); choisi = n; } });
+  inv = nv; rendre();
+}
+
+if (params.get('demo') !== null) {
+  majInventaire(params.get('demo').split(',').filter(Boolean));
+} else if (window.WA) {
+  WA.onInit().then(function () {
+    majInventaire(WA.player.state.inventaire);
+    WA.player.state.onVariableChange('inventaire').subscribe(majInventaire);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') WA.ui.modal.closeModal(); });
+} else {
+  rendre();
+  document.getElementById('detail').replaceChildren(el('p', null, "Ce sac s'ouvre depuis WorkAdventure (bouton « Mon sac »)."));
+}
+</script>
+</body>
+</html>
