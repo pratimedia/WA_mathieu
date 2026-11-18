@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rejoindre le réseau · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 7 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Ensemble, <span style="background: #fdd12f; border-radius: 12px; padding: 0 12px;">construisons</span> votre projet</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Six étapes vous séparent du lancement de votre activité. À chacune, nous sommes à vos côtés.</p>
+<a href="https://www.monassistantnumerique.com/devenir-franchise/#formulaire" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 14px 28px; border-radius: 999px; background: #fdd12f; color: #2e2e2e; font-size: 16px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px rgba(255,208,0,0.35);">Candidater maintenant</a>
+</div>
+<div style="flex: 1 1 280px; display: flex; justify-content: center;">
+<img src="img/m_demarrage.png" alt="La mascotte M@N au volant d'une voiture auto-école, pouce levé" style="width: 100%; max-width: 320px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Les étapes avant le lancement</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Votre parcours, pas à pas</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Cliquez sur une étape pour la découvrir.</p>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px;">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="6">
+<li style="display: flex;">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="flex: 1 1 auto; min-height: 112px; padding: 16px; border-radius: 20px; border: {{s.border}}; background: {{s.bg}}; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; text-align: left; font-family: inherit; color: #2e2e2e; cursor: pointer;">
+<span style="width: 40px; height: 40px; border-radius: 50%; background: {{s.dot}}; border: 2px solid #2e2e2e; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; box-sizing: border-box;">{{s.num}}</span>
+<span style="font-size: 15px; line-height: 1.3; font-weight: 700;">{{s.short}}</span>
+</button>
+</li>
+</sc-for>
+</ol>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 32px; display: flex; flex-direction: column; gap: 16px;" aria-live="polite">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Étape {{cur.num}} sur 6</p>
+<h3 style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 700;">{{cur.title}}</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+<sc-for list="{{cur.items}}" as="it" hint-placeholder-count="2">
+<li style="display: flex; gap: 12px; font-size: 18px; line-height: 1.55;"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 9px; border-radius: 50%; background: #fdd12f;"></span><span>{{it}}</span></li>
+</sc-for>
+</ul>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<button type="button" onClick="{{prev}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 1px solid #6f6f6f; background: #ffffff; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Étape précédente</button>
+<button type="button" onClick="{{next}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 0; background: #fdd12f; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Étape suivante</button>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #e6edf5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #2e2e2e;">Une question ?</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">L'équipe franchise vous répond</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #2e2e2e; max-width: 62ch;">Échangez avec nous en visio, directement dans la salle de réunion de l'Espace Candidat, ou contactez-nous.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Charlotte Delva</h3>
+<p style="margin: 0; font-size: 16px; color: #6f6f6f;">Responsable développement franchise</p>
+<a href="tel:0246650565" style="font-size: 16px; font-weight: 700; text-decoration-color: #fdd12f; text-decoration-thickness: 2px;">02 46 65 05 65</a>
+<a href="mailto:charlotte@numerique.email" style="font-size: 16px; font-weight: 700; text-decoration-color: #fdd12f; text-decoration-thickness: 2px;">charlotte@numerique.email</a>
+</div>
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Alexandre Marti</h3>
+<p style="margin: 0; font-size: 16px; color: #6f6f6f;">Directeur de franchise</p>
+<a href="mailto:alexandre@numerique.email" style="font-size: 16px; font-weight: 700; text-decoration-color: #fdd12f; text-decoration-thickness: 2px;">alexandre@numerique.email</a>
+</div>
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Pour aller plus loin</h3>
+<a href="https://www.monassistantnumerique.com/app/uploads/2025/11/Presentation-Mon-Assistant-Numerique.pdf" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; text-decoration-color: #fdd12f; text-decoration-thickness: 2px;">Télécharger la plaquette de présentation</a>
+<a href="https://www.monassistantnumerique.com/devenir-franchise/" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; text-decoration-color: #fdd12f; text-decoration-thickness: 2px;">Lire la page « Devenir franchisé »</a>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 40px; padding: 40px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: clamp(24px, 3vw, 32px); line-height: 1.3; font-weight: 900;">Rejoignez le réseau M<span style="color: #2e2e2e;">@</span>N, le réseau national des assistants numériques.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.5;">Tout seul on va plus vite, ensemble on va plus loin.</p>
+</div>
+<a href="https://www.monassistantnumerique.com/devenir-franchise/#formulaire" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 48px; padding: 14px 28px; border-radius: 999px; background: #1e3a5f; color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none;">Envoyer ma candidature</a>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { s: 0 };
+  }
+  renderVals() {
+    const S = [
+      ['Candidature', 'Postulez en ligne', ['Remplissez le formulaire de candidature sur notre site.', 'Parlez-nous de votre projet entrepreneurial et de votre territoire.']],
+      ['Entretiens', 'Entretiens individuels', ['Un premier entretien téléphonique pour découvrir votre projet.', 'Un second entretien dans nos locaux à Tours, sur le site de MAME, lieu totem de la French Tech Loire Valley, pour aller plus loin.', 'Le document d’information précontractuelle (DIP) vous est remis en fin de rendez-vous.']],
+      ['Validation', 'Validation du projet et signature du contrat', ['Après étude et validation de votre projet, vous signez le contrat de partenariat.']],
+      ['Création', 'Accompagnement à la création de votre entreprise', ['Conseil juridique pour les statuts, business plan, mode opératoire.', 'Obtention des agréments Service à la Personne.']],
+      ['Formation', 'Formation et tutorat', ['6 jours de formation initiale, en deux temps.', '3 jours à Tours : les principes du réseau, le lancement et le développement de votre activité.', '3 jours à distance : les sujets de formation, les outils internes et une journée dédiée à l’audit fonctionnel.']],
+      ['Démarrage', 'Accompagnement au démarrage de votre activité', ['Lancement du référencement local : Pages Jaunes, Google Ads.', 'Mise à disposition d’un numéro local.', 'Conseil en prospection et développement, coaching de lancement.']]
+    ];
+    const s = this.state.s;
+    return {
+      steps: S.map((x, i) => ({
+        num: String(i + 1), short: x[0],
+        pressed: i === s ? 'true' : 'false',
+        bg: i === s ? '#fff4c2' : '#ffffff',
+        dot: i <= s ? '#fdd12f' : '#ffffff',
+        border: i === s ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+        pick: () => this.setState({ s: i })
+      })),
+      cur: { num: String(s + 1), title: S[s][1], items: S[s][2] },
+      prev: () => this.setState({ s: (s + 5) % 6 }),
+      next: () => this.setState({ s: (s + 1) % 6 })
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

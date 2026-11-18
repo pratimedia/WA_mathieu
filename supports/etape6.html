@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le modèle économique · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 6 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Des conditions d'accès <span style="background: #fdd12f; border-radius: 12px; padding: 0 12px;">justes</span> et attractives</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Pas de promesses floues : vous savez où vous allez, dès le départ. En cohérence avec nos convictions sociales, nous voulons permettre au plus grand nombre de gagner sa vie en étant propriétaire de son entreprise.</p>
+</div>
+<div style="flex: 1 1 260px; display: flex; justify-content: center;">
+<img src="img/m_cpf.png" alt="La mascotte M@N présente une pièce d'un euro" style="width: 100%; max-width: 260px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Droit d'entrée</p>
+<span style="font-size: 48px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">10 750 € HT</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Finançable à 100 %, avec un accompagnement individualisé dans la recherche de vos financements.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Apport personnel</p>
+<span style="font-size: 48px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">0 €</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Aucun apport personnel n'est demandé pour lancer votre activité.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Redevance</p>
+<span style="font-size: 48px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">15 %</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Du chiffre d'affaires HT, avec un minimum de 200 € HT par mois. Une redevance unique qui inclut tout notre accompagnement.</p>
+</div>
+</div>
+</section>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">À quoi sert votre redevance ?</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Chaque euro est investi dans des services concrets</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Cliquez sur une part pour voir ce qu'elle finance.</p>
+</div>
+<div role="group" aria-label="Répartition de la redevance" style="display: flex; gap: 6px; width: 100%; min-height: 72px;">
+<sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+<button type="button" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" style="flex: {{p.flex}}; min-width: 0; min-height: 72px; border-radius: 20px; border: {{p.border}}; background: {{p.bg}}; font-family: inherit; font-size: clamp(18px, 2.5vw, 28px); font-weight: 900; color: #2e2e2e; cursor: pointer;">{{p.pct}}</button>
+</sc-for>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 28px 32px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center;" aria-live="polite">
+<span style="font-size: 56px; line-height: 1; font-weight: 900;">{{cur.pct}}</span>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">{{cur.title}}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #6f6f6f;">{{cur.text}}</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px;">
+<div style="flex: 999 1 520px; min-width: 0; background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+<h2 style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 700;">Ce que comprend votre droit d'entrée</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+<li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5;"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: #fdd12f;"></span><span><strong style="font-weight: 700;">La mise à disposition du concept et de la marque</strong> M<span style="color: #f39200;">@</span>N.</span></li>
+<li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5;"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: #fdd12f;"></span><span><strong style="font-weight: 700;">La formation initiale de 6 jours</strong> pour acquérir et appliquer toutes les méthodes du concept.</span></li>
+<li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5;"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: #fdd12f;"></span><span><strong style="font-weight: 700;">Un kit de communication d'ouverture</strong> : site internet, flyers, prospectus, cartes de visite, magnets personnalisés, sacoche, stylos.</span></li>
+<li style="display: flex; gap: 12px; font-size: 17px; line-height: 1.5;"><span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: #fdd12f;"></span><span><strong style="font-weight: 700;">Un kit technique de démarrage</strong> : les outils de diagnostic et de paramétrage, dont le disque dur M<span style="color: #f39200;">@</span>N.</span></li>
+</ul>
+</div>
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 24px;">
+<div style="background: #e6edf5; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Un contrat de 5 ans, renouvelable</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5;">Votre licence s'exploite sur une zone géographique disponible. Consultez le réseau pour connaître les zones ouvertes.</p>
+</div>
+<div style="background: #e6edf5; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Des partenaires pour financer</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5;">ADIE, prêts d'honneur, CPF : nous vous aidons à trouver le financement adapté à votre profil.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #fffbf0; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Perspectives de revenus</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Et en net, cela donne quoi ?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Nous estimons le potentiel de chiffre d'affaires, après une année d'activité, de 30 k€ par an minimum à plus de 60 k€ par an, suivant l'investissement et le potentiel du franchisé. Choisissez un exemple.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<sc-for list="{{scenarios}}" as="s" hint-placeholder-count="2">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="min-height: 48px; padding: 12px 24px; border-radius: 999px; border: {{s.border}}; background: {{s.bg}}; font-family: inherit; font-size: 16px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{s.label}}</button>
+</sc-for>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 32px; display: flex; flex-direction: column; gap: 20px;" aria-live="polite">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 14px; font-weight: 700; color: #6f6f6f;">Chiffre d'affaires annuel</span>
+<span style="font-size: 44px; line-height: 1.1; font-weight: 900;">{{sc.ca}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 14px; font-weight: 700; color: #6f6f6f;">Taxes et redevance (environ 40 %)</span>
+<span style="font-size: 44px; line-height: 1.1; font-weight: 900; color: #6f6f6f;">{{sc.charges}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 14px; font-weight: 700; color: #6f6f6f;">Revenu net annuel estimé</span>
+<span style="font-size: 44px; line-height: 1.1; font-weight: 900;"><span style="background: #fdd12f; border-radius: 12px; padding: 0 10px;">{{sc.net}}</span></span>
+</div>
+</div>
+<div aria-hidden="true" style="display: flex; height: 24px; border-radius: 999px; overflow: hidden;">
+<div style="flex: 60; background: #fdd12f;"></div>
+<div style="flex: 40; background: #e4e4e4;"></div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #6f6f6f;">Pour passer du brut au net, il faut retirer de l'ordre de 40 % entre les taxes et la redevance. Le pourcentage exact dépend du statut juridique choisi et de votre situation personnelle : il s'agit ici d'un taux moyen.</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 40px 24px 56px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700;">Dernière étape : rejoindre le réseau.</p>
+<p style="margin: 0; font-size: 16px;">Le document d'information précontractuelle (DIP) vous est remis lors de l'entretien à Tours.</p>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { p: 0, s: 0 };
+  }
+  renderVals() {
+    const P = [
+      ['5 %', 5, 'Centre d’appel et services centraux', 'L’accueil téléphonique de vos clients et prospects, la gestion administrative, l’assistance réglementaire et le support.'],
+      ['4 %', 4, 'Publicité et référencement internet', 'Votre visibilité locale : annonces Google Ads financées, offre Premium des Pages Jaunes, campagnes nationales.'],
+      ['3 %', 3, 'Gestion des systèmes d’information', 'Vos outils métier (devis, plannings, facturation), votre site web personnel et l’espace collaboratif.'],
+      ['3 %', 3, 'Utilisation de la marque', 'Une marque nationale reconnue dans l’inclusion numérique depuis plus de 10 ans, qui rassure vos clients et partenaires.']
+    ];
+    const S = [
+      { label: '30 k€ de CA par an', ca: '30 k€', charges: '12 k€', net: '18 k€' },
+      { label: '60 k€ de CA par an', ca: '60 k€', charges: '24 k€', net: '36 k€' }
+    ];
+    const p = this.state.p, s = this.state.s;
+    return {
+      parts: P.map((x, i) => ({
+        pct: x[0], flex: String(x[1]),
+        pressed: i === p ? 'true' : 'false',
+        aria: x[0] + ' : ' + x[2],
+        bg: i === p ? '#fdd12f' : '#ffffff',
+        border: i === p ? '3px solid #2e2e2e' : '1px solid #6f6f6f',
+        pick: () => this.setState({ p: i })
+      })),
+      cur: { pct: P[p][0], title: P[p][2], text: P[p][3] },
+      scenarios: S.map((x, i) => ({
+        label: x.label,
+        pressed: i === s ? 'true' : 'false',
+        bg: i === s ? '#fdd12f' : '#ffffff',
+        border: i === s ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+        pick: () => this.setState({ s: i })
+      })),
+      sc: S[s]
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

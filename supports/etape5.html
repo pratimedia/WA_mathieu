@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accompagnement 360° · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 5 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Vous n'êtes jamais seul : l'accompagnement <span style="background: #fdd12f; color: #2e2e2e; border-radius: 12px; padding: 0 12px;">360°</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Vous n'avez jamais créé d'entreprise ? Beaucoup de candidats franchissent le pas grâce à notre accompagnement. De la création de votre société à vos premiers clients, M<span style="color: #f39200;">@</span>N est à vos côtés sur sept dimensions.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2e2e2e; font-weight: 500;">Cliquez sur chaque pilier du cercle pour le découvrir.</p>
+</div>
+<div style="flex: 1 1 280px; display: flex; justify-content: center;">
+<img src="img/m_hero.png" alt="La mascotte M@N accompagne un nouveau franchisé devant un ordinateur" style="width: 100%; max-width: 360px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+<div style="position: relative; width: 100%; max-width: 460px; aspect-ratio: 1 / 1;">
+<div aria-hidden="true" style="position: absolute; left: 13%; top: 13%; width: 74%; height: 74%; border-radius: 50%; border: 14px solid #fff4c2; box-sizing: border-box;"></div>
+<div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 34%; aspect-ratio: 1 / 1; border-radius: 50%; background: #fdd12f; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+<span style="font-size: clamp(28px, 4vw, 40px); font-weight: 900; line-height: 1; color: #2e2e2e;">360°</span>
+<span style="font-size: 13px; font-weight: 700; color: #2e2e2e; margin-top: 4px;">{{visitedCount}} / 7 explorés</span>
+</div>
+<sc-for list="{{pillars}}" as="p" hint-placeholder-count="7">
+<button type="button" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" style="position: absolute; left: {{p.left}}; top: {{p.top}}; transform: translate(-50%, -50%); width: 25%; min-height: 44px; aspect-ratio: 1 / 1; border-radius: 50%; border: {{p.border}}; background: {{p.bg}}; box-shadow: {{p.shadow}}; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 6px; font-family: inherit; color: #2e2e2e; transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);">
+<span style="font-size: 20px; font-weight: 900; line-height: 1;">{{p.num}}</span>
+<span style="font-size: 11px; font-weight: 700; line-height: 1.2; text-align: center;">{{p.short}}</span>
+<span style="font-size: 10px; font-weight: 500; color: #6f6f6f; line-height: 1;">{{p.mark}}</span>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+<button type="button" onClick="{{prev}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 1px solid #6f6f6f; background: #ffffff; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Pilier précédent</button>
+<button type="button" onClick="{{next}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 0; background: #fdd12f; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Pilier suivant</button>
+</div>
+</div>
+
+<article style="flex: 999 1 520px; min-width: 0; background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 32px; display: flex; flex-direction: column; gap: 20px;" aria-live="polite">
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
+<div style="flex: 999 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Pilier {{cur.num}} sur 7</p>
+<h2 style="margin: 0; font-size: 32px; line-height: 1.25; font-weight: 700;">{{cur.title}}</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">{{cur.promise}}</p>
+</div>
+<div style="flex: 1 1 160px; display: flex; justify-content: center; background: #fff4c2; border-radius: 20px; padding: 12px;">
+<img src="{{cur.img}}" alt="{{cur.alt}}" style="width: 100%; max-width: 180px; height: auto;">
+</div>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+<sc-for list="{{cur.items}}" as="it" hint-placeholder-count="4">
+<li style="background: #fafaf7; border-radius: 20px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start;">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px; background: #fdd12f; border-radius: 50%; padding: 3px; box-sizing: border-box;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+<span style="display: flex; flex-direction: column; gap: 2px;">
+<strong style="font-size: 16px; font-weight: 700; line-height: 1.4;">{{it.t}}</strong>
+<span style="font-size: 15px; line-height: 1.5; color: #6f6f6f;">{{it.d}}</span>
+</span>
+</li>
+</sc-for>
+</ul>
+<sc-if value="{{cur.hasNote}}" hint-placeholder-val="{{true}}">
+<p style="margin: 0; background: #e6edf5; border-radius: 20px; padding: 16px 20px; font-size: 15px; line-height: 1.5; color: #2e2e2e;"><strong style="font-weight: 700;">Bon à savoir : </strong>{{cur.note}}</p>
+</sc-if>
+</article>
+</div>
+</section>
+
+<sc-if value="{{allDone}}" hint-placeholder-val="{{false}}">
+<section style="padding: 0 24px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700; color: #2e2e2e;">Vous avez fait le tour à 360° : à aucun moment vous n'avancez seul.</p>
+<p style="margin: 0; font-size: 16px; color: #2e2e2e;">Prochaine étape : le modèle économique.</p>
+</div>
+</section>
+</sc-if>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Adhérer à un réseau</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Le plus court chemin vers la réussite</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="align-self: flex-start; background: #fdd12f; color: #2e2e2e; border-radius: 999px; padding: 4px 14px; font-size: 14px; font-weight: 700;">Gage n° 1</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">La rapidité</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Vous gagnez les mois de mise au point du concept et des outils commerciaux. Opérationnel immédiatement, vous visez la rentabilité plus tôt qu'en vous lançant seul.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="align-self: flex-start; background: #fdd12f; color: #2e2e2e; border-radius: 999px; padding: 4px 14px; font-size: 14px; font-weight: 700;">Gage n° 2</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">La fiabilité</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Grâce à nos conseils, vous évitez les erreurs de démarrage et reproduisez un modèle de réussite, ce qui limite le risque propre à toute création d'entreprise.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="align-self: flex-start; background: #fdd12f; color: #2e2e2e; border-radius: 999px; padding: 4px 14px; font-size: 14px; font-weight: 700;">Gage n° 3</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">L'efficacité</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">La mutualisation des savoir-faire et des outils du réseau vous fait gagner en efficacité, avec l'expertise de toute l'équipe à vos côtés.</p>
+</div>
+</div>
+<blockquote style="margin: 0; text-align: center; font-size: 24px; line-height: 1.5; font-weight: 500; color: #2e2e2e;">« Tout seul on va plus vite, ensemble on va plus loin. »<span style="display: block; font-size: 14px; font-weight: 400; color: #6f6f6f; margin-top: 8px;">Proverbe africain, cité dans notre brochure franchisé</span></blockquote>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 0, visited: [0] };
+  }
+  go(i) {
+    const n = (i + 7) % 7;
+    const v = this.state.visited.indexOf(n) === -1 ? this.state.visited.concat([n]) : this.state.visited;
+    this.setState({ sel: n, visited: v });
+  }
+  renderVals() {
+    const P = [
+      { short: 'Démarrage', title: "L'aide au démarrage", img: 'img/m_demarrage.png', alt: 'La mascotte M@N au volant d’une voiture auto-école, pouce levé',
+        promise: 'Nous vous guidons pas à pas dans la création de votre entreprise, pour démarrer sur de bonnes bases.',
+        items: [
+          { t: 'Statut et création de société', d: 'Conseils sur le choix du statut juridique et la création de votre société.' },
+          { t: 'Business plan et agréments', d: 'Accompagnement sur le business plan, le mode opératoire et le dossier de demande d’agréments.' },
+          { t: 'Kit de communication', d: 'Flyers, présentoir, sacoche, pin’s, bloc-notes, cartes de visite : tout est prêt pour vos premiers rendez-vous.' },
+          { t: 'Kit technique', d: 'Les outils de diagnostic et de paramétrage, dont le disque dur M@N.' }
+        ], note: '' },
+      { short: 'Formation', title: 'La formation initiale', img: 'img/m_formation.png', alt: 'La mascotte M@N travaille sur un ordinateur portable',
+        promise: '6 jours de formation initiale, en deux temps, pour acquérir le savoir-faire du réseau et lancer votre activité.',
+        items: [
+          { t: '3 jours à Tours', d: 'Sur le site de MAME, lieu totem de la French Tech Loire Valley : les principes du réseau, le lancement et le développement de votre activité.' },
+          { t: '3 jours à distance', d: 'Les sujets de formation que vous animerez et les outils internes du réseau.' },
+          { t: 'Une journée sur l’audit fonctionnel', d: 'Pour savoir proposer cet audit à vos clients.' },
+          { t: 'Posture et prospection', d: 'Compétences numériques, posture entrepreneuriale, prospection locale : vous démarrez avec les bons réflexes.' }
+        ], note: 'Une formation pensée pour les personnes qui n’ont jamais créé d’entreprise : vous n’avez pas besoin d’être déjà entrepreneur pour vous lancer.' },
+      { short: 'Suivi', title: 'Un accompagnement continu', img: 'img/m_continu.png', alt: 'La mascotte M@N debout, pouce levé',
+        promise: 'Après le lancement, nous restons disponibles en permanence, à chaque étape de votre développement.',
+        items: [
+          { t: 'Un référent dédié', d: 'Un coach au quotidien pour répondre à toutes vos questions.' },
+          { t: 'Des points de suivi réguliers', d: 'Un pas à pas rythmé et adapté à vos besoins.' },
+          { t: 'Une aide sur tous les sujets', d: 'Juridique, facturation, communication, développement commercial.' },
+          { t: 'Une communauté solidaire', d: 'Échanges de bonnes pratiques et partage avec les autres franchisés.' }
+        ], note: 'Une base de connaissances vivante réunit plus de 10 ans de retour d’expérience du réseau, accessible via nos outils collaboratifs.' },
+      { short: 'Back office', title: 'Le support back office', img: 'img/m_backoffice.png', alt: 'La mascotte M@N avec un casque-micro devant un ordinateur',
+        promise: 'Nous prenons en charge ce qui vous éloigne du terrain, pour que vous vous consacriez à vos clients.',
+        items: [
+          { t: 'Centre d’appel', d: 'Une équipe dédiée accueille vos clients et vos prospects au téléphone.' },
+          { t: 'Outils métier', d: 'Devis, gestion des intervenants et des plannings, facturation : un quotidien simplifié.' },
+          { t: 'Administratif, juridique et comptable', d: 'Gestion administrative et assistance réglementaire.' },
+          { t: 'Support informatique', d: 'Des réponses à toutes vos questions techniques.' }
+        ], note: 'Votre espace collaboratif vous relie en permanence à la base de connaissances, au réseau social interne et à la plateforme de formation.' },
+      { short: 'Communication', title: 'La communication', img: 'img/m_communication.png', alt: 'La mascotte M@N présente un graphique de croissance',
+        promise: 'Une marque forte et des campagnes mutualisées pour vous rendre visible localement dès le départ.',
+        items: [
+          { t: 'Une marque reconnue', d: 'Présente depuis plus de 10 ans, avec des partenaires reconnus.' },
+          { t: 'Votre site web personnel', d: 'Une page dédiée à votre image et un catalogue de formation personnalisé.' },
+          { t: 'Des supports personnalisables', d: 'Cartes de visite, flyers, brochure, rollup, goodies.' },
+          { t: 'Des campagnes nationales mutualisées', d: 'Annonces Google Ads et offre Premium des Pages Jaunes pour votre visibilité locale.' }
+        ], note: '' },
+      { short: 'Apport d’affaires', title: 'L’apport d’affaires du réseau', img: 'img/m_affaires.png', alt: 'La mascotte M@N marche avec une mallette professionnelle',
+        promise: 'Vous gagnez du temps sur la prospection et concentrez votre énergie sur l’accompagnement terrain.',
+        items: [
+          { t: 'Une visibilité nationale', d: 'Le réseau vous fait profiter de sa notoriété partout en France.' },
+          { t: 'Des missions qualifiées', d: 'Des missions transmises par le réseau, directement sur votre zone.' },
+          { t: 'Partenaires et prescripteurs', d: 'Un soutien commercial porté par nos partenaires, apporteurs d’affaires et prescripteurs.' },
+          { t: 'Plateforme téléphonique', d: 'Vos prospects sont accueillis pour vous, même quand vous êtes en intervention.' }
+        ], note: '' },
+      { short: 'CPF / OPCO', title: 'Des formations finançables', img: 'img/m_cpf.png', alt: 'La mascotte M@N présente une pièce d’un euro',
+        promise: 'Nous vous formons à construire et vendre des offres finançables par les dispositifs publics.',
+        items: [
+          { t: 'CPF, OPCO et autres dispositifs', d: 'Des formations éligibles aux financements publics.' },
+          { t: 'Plus de clients', d: 'Particuliers comme professionnels : le financement facilite leur décision d’achat.' },
+          { t: 'Un catalogue riche', d: '250 formations proposées pour tous les niveaux.' },
+          { t: 'Un avantage pour les particuliers', d: 'Vos clients particuliers bénéficient de 50 % de déduction fiscale.' }
+        ], note: '' }
+    ];
+    const sel = this.state.sel;
+    const visited = this.state.visited;
+    const pillars = P.map((p, i) => {
+      const a = (-90 + i * (360 / 7)) * Math.PI / 180;
+      const on = i === sel;
+      const seen = visited.indexOf(i) !== -1;
+      return {
+        num: String(i + 1),
+        short: p.short,
+        left: (50 + 37 * Math.cos(a)).toFixed(2) + '%',
+        top: (50 + 37 * Math.sin(a)).toFixed(2) + '%',
+        bg: on ? '#fdd12f' : '#ffffff',
+        border: on ? '3px solid #2e2e2e' : (seen ? '2px solid #7fb93b' : '2px solid #6f6f6f'),
+        shadow: on ? '0 6px 18px rgba(30,30,30,0.10)' : '0 2px 6px rgba(30,30,30,0.08)',
+        mark: seen ? 'vu' : '',
+        pressed: on ? 'true' : 'false',
+        aria: 'Pilier ' + (i + 1) + ' : ' + p.title + (seen ? ', déjà consulté' : ''),
+        pick: () => this.go(i)
+      };
+    });
+    const c = P[sel];
+    return {
+      pillars: pillars,
+      cur: { num: String(sel + 1), title: c.title, promise: c.promise, img: c.img, alt: c.alt, items: c.items, note: c.note, hasNote: c.note !== '' },
+      visitedCount: String(visited.length),
+      allDone: visited.length === 7,
+      prev: () => this.go(sel - 1),
+      next: () => this.go(sel + 1)
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

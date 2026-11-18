@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 raisons de se lancer · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 3 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">5 bonnes raisons de <span style="background: #fdd12f; border-radius: 12px; padding: 0 12px;">vous lancer</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Êtes-vous prêt à entreprendre avec Mon Assistant Numérique ? Ouvrez chaque raison, puis voyez si vous vous reconnaissez dans le profil de nos franchisés.</p>
+</div>
+<div style="flex: 1 1 260px; display: flex; justify-content: center;">
+<img src="img/m_continu.png" alt="La mascotte M@N debout, pouce levé" style="width: 100%; max-width: 220px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between;">
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Vous voulez…</h2>
+<p style="margin: 0; font-size: 16px; color: #6f6f6f;">{{openedCount}} / 5 raisons découvertes</p>
+</div>
+<sc-for list="{{reasons}}" as="r" hint-placeholder-count="5">
+<div style="background: {{r.bg}}; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); overflow: hidden;">
+<button type="button" onClick="{{r.toggle}}" aria-expanded="{{r.expanded}}" style="width: 100%; min-height: 72px; padding: 20px 28px; border: 0; background: transparent; display: flex; gap: 20px; align-items: center; text-align: left; font-family: inherit; color: #2e2e2e; cursor: pointer;">
+<span style="flex: none; width: 48px; height: 48px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900;">{{r.num}}</span>
+<span style="flex: 1 1 auto; font-size: clamp(18px, 2.4vw, 24px); line-height: 1.3; font-weight: 700;">{{r.title}}</span>
+<span aria-hidden="true" style="flex: none; font-size: 28px; font-weight: 400; line-height: 1;">{{r.sign}}</span>
+</button>
+<sc-if value="{{r.open}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; padding: 0 28px 24px 96px; font-size: 18px; line-height: 1.65; color: #2e2e2e;">{{r.text}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Le profil du franchisé</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Vous reconnaissez-vous ?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Cochez les phrases qui vous ressemblent.</p>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{profile}}" as="p" hint-placeholder-count="5">
+<button type="button" role="checkbox" aria-checked="{{p.checked}}" onClick="{{p.toggle}}" style="min-height: 56px; padding: 14px 20px; border-radius: 20px; border: {{p.border}}; background: {{p.bg}}; display: flex; gap: 16px; align-items: center; text-align: left; font-family: inherit; font-size: 17px; line-height: 1.4; color: #2e2e2e; cursor: pointer;">
+<span aria-hidden="true" style="flex: none; width: 28px; height: 28px; border-radius: 8px; border: 2px solid #2e2e2e; background: {{p.box}}; display: flex; align-items: center; justify-content: center;">
+<sc-if value="{{p.on}}" hint-placeholder-val="{{false}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+</span>
+<span>{{p.text}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="flex: 1 1 320px; background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 32px; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center;" aria-live="polite">
+<span style="font-size: 64px; line-height: 1; font-weight: 900;">{{checkedCount}}<span style="font-size: 28px; color: #6f6f6f;"> / 5</span></span>
+<p style="margin: 0; font-size: 20px; line-height: 1.5; font-weight: 700;">{{verdictTitle}}</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">{{verdictText}}</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 40px 24px 56px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700;">Prochaine étape : rencontrez le réseau et ses valeurs.</p>
+<a href="https://www.monassistantnumerique.com/top-5-des-raisons-de-se-lancer-en-reseau-de-franchise/" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #2e2e2e;">Lire l'article « Top 5 des raisons de se lancer »</a>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: [], seen: [], checked: [] };
+  }
+  renderVals() {
+    const R = [
+      ['Accéder à un modèle économique accessible et éprouvé', 'Un investissement initial modéré, avec le retour d’expérience de plus de 110 franchisés en activité.'],
+      ['Donner du sens à votre travail', 'Vous aidez au quotidien des publics variés à mieux utiliser le numérique : un impact direct et concret.'],
+      ['Entreprendre sans être seul', 'Vous bénéficiez d’un réseau structuré, d’une marque forte et d’un accompagnement permanent.'],
+      ['Gérer votre emploi du temps librement', 'Vous êtes autonome dans l’organisation de vos journées et pouvez préserver votre équilibre pro/perso.'],
+      ['Transformer une passion pour le digital en métier', 'Vous valorisez vos compétences numériques tout en restant proche du terrain.']
+    ];
+    const P = [
+      'Je suis un entrepreneur dynamique et je partage les valeurs du réseau',
+      'Je suis passionné de nouvelles technologies',
+      'J’ai le sens du service et la fibre commerciale',
+      'Je suis pédagogue et j’aime aider',
+      'Je suis un bon gestionnaire'
+    ];
+    const s = this.state;
+    const has = (arr, i) => arr.indexOf(i) !== -1;
+    const flip = (arr, i) => has(arr, i) ? arr.filter((x) => x !== i) : arr.concat([i]);
+    const n = s.checked.length;
+    let vt = 'Cochez les phrases qui vous ressemblent';
+    let vx = 'Il n’y a pas de mauvaise réponse : ce profil vous aide simplement à vous projeter.';
+    if (n >= 1 && n <= 2) { vt = 'Vous avez déjà de belles bases'; vx = 'Le reste s’apprend : la formation initiale et l’accompagnement du réseau sont là pour ça.'; }
+    if (n >= 3 && n <= 4) { vt = 'Vous avez le profil pour vous lancer'; vx = 'Vos qualités sont exactement celles de nos franchisés. Parlons-en lors d’un entretien.'; }
+    if (n === 5) { vt = 'Vous êtes fait pour l’aventure M@N'; vx = 'Vous cochez toutes les cases : il est temps de nous rencontrer.'; }
+    return {
+      reasons: R.map((r, i) => ({
+        num: String(i + 1), title: r[0], text: r[1],
+        open: has(s.open, i),
+        expanded: has(s.open, i) ? 'true' : 'false',
+        sign: has(s.open, i) ? '−' : '+',
+        bg: has(s.open, i) ? '#fff4c2' : '#ffffff',
+        toggle: () => this.setState({ open: flip(s.open, i), seen: has(s.seen, i) ? s.seen : s.seen.concat([i]) })
+      })),
+      openedCount: String(s.seen.length),
+      profile: P.map((t, i) => ({
+        text: t,
+        on: has(s.checked, i),
+        checked: has(s.checked, i) ? 'true' : 'false',
+        bg: has(s.checked, i) ? '#fff4c2' : '#ffffff',
+        border: has(s.checked, i) ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+        box: has(s.checked, i) ? '#fdd12f' : '#ffffff',
+        toggle: () => this.setState({ checked: flip(s.checked, i) })
+      })),
+      checkedCount: String(n),
+      verdictTitle: vt,
+      verdictText: vx
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

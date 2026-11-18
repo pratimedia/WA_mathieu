@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenue dans le réseau · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 1 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Créez votre entreprise avec M<span style="color: #f39200;">@</span>N</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Vous êtes passionné de nouvelles technologies, vous avez le sens du service et vous souhaitez entreprendre ? Bienvenue dans le réseau national de l'inclusion numérique.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<a href="https://www.monassistantnumerique.com/app/uploads/2025/11/Presentation-Mon-Assistant-Numerique.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 24px; border-radius: 999px; background: #fdd12f; color: #2e2e2e; font-size: 15px; font-weight: 700; text-decoration: none;">Télécharger la plaquette</a>
+<a href="#fondateurs" style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 24px; border-radius: 999px; background: #1e3a5f; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none;">Le mot des fondateurs</a>
+</div>
+</div>
+<div style="flex: 1 1 260px; display: flex; justify-content: center;">
+<img src="img/m_neutre.png" alt="La mascotte M@N souriante, debout" style="width: 100%; max-width: 260px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Ce que nous vous proposons</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Quatre promesses pour votre nouvelle vie</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="width: 48px; height: 48px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900;">1</span>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700;">Un métier qui a du sens</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Vous aidez des publics variés à mieux utiliser le numérique : un impact direct et concret.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="width: 48px; height: 48px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900;">2</span>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700;">Autonomie, responsabilité et liberté</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Vous êtes maître de votre emploi du temps, de vos services et de votre zone d'intervention.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="width: 48px; height: 48px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900;">3</span>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700;">Un métier passion et une communauté</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Vous rejoignez une communauté soudée d'entrepreneurs qui partagent les mêmes valeurs.</p>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<span style="width: 48px; height: 48px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900;">4</span>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700;">Un équilibre de vie préservé</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #6f6f6f;">Vous organisez vos journées librement et préservez votre équilibre pro/perso.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 56px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">+110</span>
+<span style="font-size: 16px; line-height: 1.5; color: #6f6f6f;">franchisés en France et DOM-TOM</span>
+</div>
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 56px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">35 000</span>
+<span style="font-size: 16px; line-height: 1.5; color: #6f6f6f;">clients et bénéficiaires en 2024</span>
+</div>
+<div style="background: #ffffff; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 56px; line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">250</span>
+<span style="font-size: 16px; line-height: 1.5; color: #6f6f6f;">formations proposées pour tous les niveaux</span>
+</div>
+</div>
+</section>
+
+<section id="fondateurs" style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Le mot des fondateurs</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">À l'origine, un engagement humain fort</h2>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.65; font-weight: 500; color: #2e2e2e;">« Nos expériences professionnelles respectives, pourtant très différentes, nous ont forgé la même conviction : la clé de la réussite réside dans le potentiel humain et le partage ! »</blockquote>
+<sc-if value="{{longQuote}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">MonAssistantNumerique.com est née de cet état d'esprit. Notre ambition : mailler finement le territoire d'un réseau d'entrepreneurs autonomes et responsables, partageant des valeurs et des convictions communes, au service d'un développement économique et humain durable. Notre défi : imaginer un système où chacun sera libre d'entreprendre, de s'organiser comme il l'entend pour préserver sa qualité de vie, tout en s'épanouissant dans un métier passion, avec un juste partage des profits.</p>
+</sc-if>
+<button type="button" onClick="{{toggleQuote}}" style="align-self: flex-start; min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 1px solid #6f6f6f; background: #ffffff; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{quoteLabel}}</button>
+<p style="margin: 0; font-size: 16px; font-weight: 700;">Antoine Poignant et Mathieu Tessier, cofondateurs du réseau</p>
+</div>
+<div style="flex: 1 1 320px; background: #e6edf5; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Écoutez-les en vidéo</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2e2e2e;">Antoine et Mathieu vous racontent pourquoi ils ont créé le réseau et ce qu'ils attendent de leurs futurs franchisés.</p>
+<a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 12px 24px; border-radius: 999px; background: #1e3a5f; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none;">Voir la vidéo [LIEN À FOURNIR]</a>
+</div>
+</div>
+</section>
+
+<section style="background: #fffbf0; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Notre histoire</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">De Cholet à toute la France</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Cliquez sur une année pour découvrir les étapes clés du réseau.</p>
+</div>
+<div role="group" aria-label="Années" style="display: flex; flex-wrap: wrap; gap: 8px;">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="10">
+<button type="button" onClick="{{y.pick}}" aria-pressed="{{y.pressed}}" style="min-width: 72px; min-height: 44px; padding: 10px 16px; border-radius: 999px; border: {{y.border}}; background: {{y.bg}}; font-family: inherit; font-size: 16px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{y.label}}</button>
+</sc-for>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+<span style="font-size: 64px; line-height: 1; font-weight: 900; letter-spacing: -0.02em; flex: 0 0 auto;">{{curYear}}</span>
+<ul style="margin: 0; padding: 0; list-style: none; flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{events}}" as="e" hint-placeholder-count="2">
+<li style="display: flex; gap: 12px; align-items: flex-start; font-size: 18px; line-height: 1.5;">
+<span aria-hidden="true" style="flex: none; width: 12px; height: 12px; margin-top: 8px; border-radius: 50%; background: #fdd12f;"></span>
+<span>{{e}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<button type="button" onClick="{{prev}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 1px solid #6f6f6f; background: #ffffff; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Année précédente</button>
+<button type="button" onClick="{{next}}" style="min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 0; background: #fdd12f; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">Année suivante</button>
+</div>
+</div>
+</section>
+
+<section style="padding: 40px 24px 56px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700; color: #2e2e2e;">Prochaine étape : découvrez le métier d'assistant numérique.</p>
+<p style="margin: 0; font-size: 16px; color: #2e2e2e;">Suivez le chemin jaune vers l'étape 2.</p>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { y: 0, longQuote: false };
+  }
+  renderVals() {
+    const H = [
+      ['2014', ['Création du pilote à Cholet.']],
+      ['2015', ['Création du réseau M@N.', 'Octobre : formation de la première promotion, avec nos 5 premiers franchisés.']],
+      ['2016', ['L’ADIE rejoint notre projet en entrant au capital de M@N.', 'M@N devient partenaire de cybermalveillance.gouv.fr.']],
+      ['2017', ['Ritualisation du séminaire M@N.', 'M@N intègre la MedNum.', 'Octobre : le ministre Mounir Mahjoubi visite M@N Angers, en accompagnement chez un client.', 'Octobre : 30 franchisés en activité.']],
+      ['2018', ['Partenariat avec l’UNCCAS.', 'Novembre : plus de 50 franchisés en activité.']],
+      ['2019', ['Antoine Poignant, cofondateur, devient administrateur de la MedNum.', 'Mise en place des partenariats avec Pix et Simplon.']],
+      ['2020', ['Participation active, avec le ministre, à l’orientation des politiques d’inclusion numérique.']],
+      ['2021', ['80 franchisés en activité.']],
+      ['2022', ['Création du centre de formation : l’Institut Mon Assistant Numérique.']],
+      ['2025', ['Entrée de la Banque des Territoires au capital.']]
+    ];
+    const sel = this.state.y;
+    const years = H.map((h, i) => ({
+      label: h[0],
+      pressed: i === sel ? 'true' : 'false',
+      bg: i === sel ? '#fdd12f' : '#ffffff',
+      border: i === sel ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+      pick: () => this.setState({ y: i })
+    }));
+    return {
+      years: years,
+      curYear: H[sel][0],
+      events: H[sel][1],
+      prev: () => this.setState({ y: (sel + H.length - 1) % H.length }),
+      next: () => this.setState({ y: (sel + 1) % H.length }),
+      longQuote: this.state.longQuote,
+      quoteLabel: this.state.longQuote ? 'Réduire' : 'Lire la suite',
+      toggleQuote: () => this.setState({ longQuote: !this.state.longQuote })
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le réseau et ses valeurs · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 4 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Un réseau, une communauté, <span style="background: #fdd12f; border-radius: 12px; padding: 0 12px;">des valeurs</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Chez Mon Assistant Numérique, un réseau solide repose d'abord sur des valeurs humaines. Si vous vous reconnaissez dans ces principes, vous êtes à la bonne place.</p>
+</div>
+<div style="flex: 1 1 260px; display: flex; justify-content: center;">
+<img src="img/m_coeurs.png" alt="La mascotte M@N pensive, entourée de cœurs" style="width: 100%; max-width: 260px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Nos valeurs</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Partage, confiance, liberté, progrès</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Cliquez sur une valeur pour voir ce qu'elle veut dire au quotidien.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+<sc-for list="{{values}}" as="v" hint-placeholder-count="4">
+<button type="button" onClick="{{v.pick}}" aria-pressed="{{v.pressed}}" style="min-height: 96px; padding: 20px; border-radius: 28px; border: {{v.border}}; background: {{v.bg}}; font-family: inherit; font-size: 24px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{v.label}}</button>
+</sc-for>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 6px 18px rgba(30,30,30,0.10); padding: 32px; display: flex; flex-direction: column; gap: 8px;" aria-live="polite">
+<h3 style="margin: 0; font-size: 28px; font-weight: 700;">{{cur.label}}</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #2e2e2e;">{{cur.text}}</p>
+</div>
+<p style="margin: 0; background: #e6edf5; border-radius: 20px; padding: 16px 20px; font-size: 16px; line-height: 1.5;"><strong style="font-weight: 700;">Nos convictions : </strong>l'intelligence collaborative, la co-construction, l'entrepreneuriat et l'agilité sont les fondations de nos modes de fonctionnement.</p>
+</div>
+</section>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">La communauté</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Plus de 110 franchisés partout en France</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Échanges entre franchisés, rencontres nationales, séminaire annuel : un soutien entre pairs qui renforce la motivation et les compétences de chacun.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 24px; border-radius: 999px; background: #1e3a5f; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none;">Voir la carte des franchisés [LIEN À FOURNIR]</a>
+</div>
+<h3 style="margin: 8px 0 0; font-size: 24px; font-weight: 700;">Ils ont rejoint l'aventure récemment</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;">
+<sc-for list="{{newcomers}}" as="c" hint-placeholder-count="12">
+<li style="background: #ffffff; border-radius: 20px; padding: 16px 20px; display: flex; gap: 12px; align-items: center;">
+<span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: #fdd12f; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900;">{{c.initial}}</span>
+<span style="display: flex; flex-direction: column;">
+<strong style="font-size: 16px; font-weight: 700;">{{c.name}}</strong>
+<span style="font-size: 14px; color: #6f6f6f;">{{c.place}}</span>
+</span>
+</li>
+</sc-for>
+</ul>
+<button type="button" onClick="{{toggleMore}}" style="align-self: flex-start; min-height: 44px; padding: 12px 24px; border-radius: 999px; border: 1px solid #6f6f6f; background: #ffffff; font-family: inherit; font-size: 15px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{moreLabel}}</button>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Témoignages</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Ils ont changé de vie avec Mon Assistant Numérique</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Ils ont choisi de donner un nouveau sens à leur vie professionnelle, et ce sont eux qui en parlent le mieux.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Blandine Leuliette</h3>
+<a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 12px 20px; border-radius: 999px; background: #fdd12f; color: #2e2e2e; font-size: 15px; font-weight: 700; text-decoration: none;">Voir son témoignage [LIEN]</a>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Joris Barbier</h3>
+<a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 12px 20px; border-radius: 999px; background: #fdd12f; color: #2e2e2e; font-size: 15px; font-weight: 700; text-decoration: none;">Voir son témoignage [LIEN]</a>
+</div>
+<div style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700;">Christophe Henrio</h3>
+<a href="#" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 12px 20px; border-radius: 999px; background: #fdd12f; color: #2e2e2e; font-size: 15px; font-weight: 700; text-decoration: none;">Voir son témoignage [LIEN]</a>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #fffbf0; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Ils nous font confiance</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Des partenaires reconnus</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 12px;">
+<sc-for list="{{partners}}" as="p" hint-placeholder-count="7">
+<li style="background: #ffffff; border-radius: 999px; padding: 12px 20px; font-size: 16px; font-weight: 700; box-shadow: 0 1px 2px rgba(30,30,30,0.06);">{{p}}</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section style="padding: 40px 24px 56px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700;">Prochaine étape : la rotonde de l'accompagnement 360°, au cœur du bâtiment.</p>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { v: 0, more: false };
+  }
+  renderVals() {
+    const V = [
+      ['Partage', 'Nos franchisés ont à cœur de transmettre leurs compétences techniques et théoriques à leurs clients, et de partager leur expérience entre eux.'],
+      ['Confiance', 'Indispensable pour intervenir au sein même des foyers, mettre en place des solutions de sécurité ou sauvegarder des photos de famille. C’est la pierre angulaire du métier.'],
+      ['Liberté', 'Essentielle pour nos franchisés, libres d’entreprendre et de s’organiser, et finalité pour leurs clients, qui gagnent leur indépendance face au numérique.'],
+      ['Progrès', 'Un objectif plus large : œuvrer en faveur de l’inclusion numérique, accessible à tous sans limite de niveau ou d’âge.']
+    ];
+    const N = [
+      ['Lucas', 'Dracénie - Est Var'], ['Patrice', 'Gap Briançon'], ['Joseph', 'Belfort Montbéliard'], ['Richard', 'Pays Boulonnais'],
+      ['Patrice', 'Montpellier Pic Saint Loup'], ['Grégory', 'Nantes Nord Ouest'], ['Olivier', 'Pays des Fées'], ['Marina', 'Grand Pic Saint Loup'],
+      ['Jérémy', 'Saint-Brieuc - Armor'], ['Denis', 'Pays du Canal du Midi'], ['Sylvio', 'Rouen'], ['Aziza', 'Massy'],
+      ['Edwige', 'Le Mans Sud'], ['Johann', 'Tours Est'], ['Yannick', 'Royan - Marennes-Oléron'], ['Lydia', 'Ouest Var'],
+      ['Guillaume', 'Hauts Tolosans'], ['Yannick', 'Montpellier Sud Ouest'], ['Christian', 'La Rochelle'], ['Emmanuel', 'Tours Sud'],
+      ['Murielle', 'Val de Durance'], ['Wenceslas', 'Pays de Thau'], ['Isabelle', 'Épernay Plivot'], ['Yann', 'Centre Morbihan Pontivy']
+    ];
+    const sel = this.state.v;
+    const list = this.state.more ? N : N.slice(0, 12);
+    return {
+      values: V.map((v, i) => ({
+        label: v[0],
+        pressed: i === sel ? 'true' : 'false',
+        bg: i === sel ? '#fdd12f' : '#ffffff',
+        border: i === sel ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+        pick: () => this.setState({ v: i })
+      })),
+      cur: { label: V[sel][0], text: V[sel][1] },
+      newcomers: list.map((n) => ({ name: n[0], place: 'M@N ' + n[1], initial: n[0].charAt(0) })),
+      moreLabel: this.state.more ? 'Afficher moins' : 'Afficher plus de nouveaux franchisés',
+      toggleMore: () => this.setState({ more: !this.state.more }),
+      partners: ['Banque des Territoires', 'ADIE', 'La MedNum', 'UNCCAS', 'cybermalveillance.gouv.fr', 'Pix', 'Simplon']
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>

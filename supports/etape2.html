@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le métier d'assistant numérique · Espace Candidat M@N</title>
+<style>
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Regular.otf) format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Medium.otf) format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Bold.otf) format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gordita';src:url(fonts/Gordita-Black.otf) format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+body{margin:0;background:#ffffff}
+a{color:#2e2e2e}a:hover{color:#e5b80a}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+
+<main style="font-family: 'Gordita', system-ui, sans-serif; color: #2e2e2e; background: #ffffff;">
+
+<section style="background: #fffbf0; padding: 56px 24px 48px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Espace Candidat · étape 2 sur 7</p>
+<h1 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em;">Assistant numérique : <span style="background: #fdd12f; border-radius: 12px; padding: 0 12px;">faire comprendre</span>, faire apprendre</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.65; color: #6f6f6f; max-width: 62ch;">Vous devenez l'interlocuteur de confiance qui accompagne vers un usage serein du numérique, chez les particuliers, dans les entreprises et auprès des institutions de votre territoire.</p>
+</div>
+<div style="flex: 1 1 280px; display: flex; justify-content: center;">
+<img src="img/m_hero.png" alt="La mascotte M@N accompagne une personne devant un ordinateur" style="width: 100%; max-width: 340px; height: auto;">
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Votre savoir-faire</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Trois façons d'aider vos clients</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<div style="background: #fff4c2; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="9" r="2.5"></circle><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5"></path><path d="M13.5 15.5c.8-.4 1.6-.5 2.5-.5 2.2 0 4 1.6 4 4"></path></svg>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">Accompagner</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2e2e2e;">Vous aidez vos clients à démarrer avec leurs outils et à prendre confiance, avec une relation client attentive et durable.</p>
+</div>
+<div style="background: #fff4c2; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l10-4 10 4-10 4-10-4z"></path><path d="M6 10v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">Former</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2e2e2e;">Vous transmettez vos compétences avec une pédagogie innovante, pour rendre vos clients autonomes.</p>
+</div>
+<div style="background: #fff4c2; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5z"></path></svg>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700;">Assister</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2e2e2e;">Vous apportez une assistance technique concrète : installation, paramétrage, sécurité, sauvegarde.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #f5f5f5; padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Vos clients</p>
+<h2 style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; font-weight: 700;">Qui allez-vous accompagner ?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Choisissez un public pour voir des exemples de missions.</p>
+</div>
+<div role="tablist" aria-label="Publics" style="display: flex; flex-wrap: wrap; gap: 8px;">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="min-height: 48px; padding: 12px 24px; border-radius: 999px; border: {{t.border}}; background: {{t.bg}}; font-family: inherit; font-size: 16px; font-weight: 700; color: #2e2e2e; cursor: pointer;">{{t.label}}</button>
+</sc-for>
+</div>
+<div role="tabpanel" style="background: #ffffff; border-radius: 28px; box-shadow: 0 2px 6px rgba(30,30,30,0.08); padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-size: 28px; font-weight: 700;">{{cur.title}}</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">{{cur.intro}}</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+<sc-for list="{{cur.items}}" as="it" hint-placeholder-count="4">
+<li style="background: #fafaf7; border-radius: 20px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5;">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px; background: #fdd12f; border-radius: 50%; padding: 3px; box-sizing: border-box;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+<span>{{it}}</span>
+</li>
+</sc-for>
+</ul>
+<p style="margin: 0; background: #e6edf5; border-radius: 20px; padding: 16px 20px; font-size: 16px; line-height: 1.5;"><strong style="font-weight: 700;">Bon à savoir : </strong>{{cur.note}}</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fffbf0; border-radius: 40px; padding: 40px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+<div style="flex: 1 1 200px; display: flex; justify-content: center;">
+<img src="img/m_coeurs.png" alt="La mascotte M@N pensive, entourée de cœurs" style="width: 100%; max-width: 220px; height: auto;">
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6f6f6f;">Notre raison d'être</p>
+<p style="margin: 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.4; font-weight: 700;">Rendre le numérique accessible au plus grand nombre, en s'intégrant localement et en créant une relation client inimitable.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #6f6f6f;">Un métier à impact, au service de l'inclusion numérique, accessible à tous sans limite de niveau ou d'âge.</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 24px 56px;">
+<div style="max-width: 1200px; margin: 0 auto; background: #fdd12f; border-radius: 28px; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
+<p style="margin: 0; font-size: 22px; font-weight: 700;">Prochaine étape : les 5 bonnes raisons de vous lancer.</p>
+<a href="https://www.monassistantnumerique.com/quest-ce-quun-assistant-numerique/" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #2e2e2e;">Lire l'article sur le métier</a>
+</div>
+</section>
+
+</main>
+</script>
+<script src="dc_runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { t: 0 };
+  }
+  renderVals() {
+    const T = [
+      { label: 'Particuliers', title: 'Les particuliers', intro: 'À domicile, vous aidez chacun à rester autonome et connecté, quel que soit son âge ou son niveau.',
+        items: ['Faire ses démarches administratives en ligne : déclaration de revenus, impôts', 'Mettre en place des solutions de sécurité', 'Sauvegarder les photos de famille sur une solution de cloud', 'Paramétrer les appareils électroniques du quotidien'],
+        note: 'vos clients particuliers bénéficient de 50 % de déduction fiscale sur vos services.' },
+      { label: 'Professionnels', title: 'Les professionnels : TPE, artisans', intro: 'Les entrepreneurs aussi ont besoin d’expertise et de confiance pour moderniser leur entreprise.',
+        items: ['Accompagner un raccordement à la fibre', 'Installer des imprimantes en réseau', 'Former aux outils de productivité', 'Être un interlocuteur réactif, proactif et pertinent'],
+        note: 'vous pouvez proposer des formations finançables par les OPCO, ce qui facilite la décision de vos clients professionnels.' },
+      { label: 'Institutions', title: 'Les institutions : écoles, CCAS, mairies', intro: 'Vous contribuez à l’inclusion numérique sur votre territoire, aux côtés des acteurs publics locaux.',
+        items: ['Les écoles', 'Les CCAS', 'Les mairies', 'Les partenaires locaux : collectivités, entreprises, associations'],
+        note: 'la notoriété nationale de Mon Assistant Numérique rassure les partenaires locaux et vous distingue sur votre territoire.' }
+    ];
+    const sel = this.state.t;
+    return {
+      tabs: T.map((t, i) => ({
+        label: t.label,
+        selected: i === sel ? 'true' : 'false',
+        bg: i === sel ? '#fdd12f' : '#ffffff',
+        border: i === sel ? '2px solid #2e2e2e' : '1px solid #6f6f6f',
+        pick: () => this.setState({ t: i })
+      })),
+      cur: T[sel]
+    };
+  }
+}
+
+dcMount(document.getElementById('app'), document.getElementById('tpl').textContent, Component);
+</script>
+</body>
+</html>
