@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mur d'actualités · Bureau virtuel M@N</title>
+<!-- Page d'attente du mur d'actualites (Bureau virtuel v4). Le contenu reel reste a definir avec Mathieu :
+     page existante (site, Jamespot, agenda) ou page a creer. -->
+<style>
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Regular.otf) format('opentype');font-weight:400}
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Bold.otf) format('opentype');font-weight:700}
+:root{--jaune:#FDD12F;--orange:#F39200;--encre:#2E2E2E;--fond:#FFFBEA}
+*{box-sizing:border-box}
+body{margin:0;font-family:Gordita,system-ui,sans-serif;background:var(--fond);color:var(--encre)}
+header{background:var(--jaune);padding:24px}
+header h1{margin:0;font-size:24px}
+header p{margin:6px 0 0}
+main{padding:24px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.carte{background:#fff;border:2px solid var(--encre);border-radius:14px;padding:18px;box-shadow:4px 4px 0 var(--orange)}
+.carte h2{margin:0 0 8px;font-size:17px}
+.carte p{margin:0;font-size:14px;line-height:1.5}
+.todo{color:#9a5b00;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <h1>Mur d'actualités du réseau M@N</h1>
+  <p>Les dernières nouvelles du réseau Mon Assistant Numérique.</p>
+</header>
+<main>
+  <div class="carte"><h2>Actualités du réseau</h2><p class="todo">[À définir : source des actualités]</p></div>
+  <div class="carte"><h2>Agenda</h2><p class="todo">[À définir : prochains rendez-vous]</p></div>
+  <div class="carte"><h2>À la une</h2><p class="todo">[À définir]</p></div>
+</main>
+</body>
+</html>
