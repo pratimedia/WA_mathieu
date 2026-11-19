@@ -1,2 +1,0 @@
-import{b as o}from"./init-_B1AlEWN.js";WA.onInit().then(async()=>{try{const e=await WA.room.website.get("bulle_accueil");e.url=new URL("bulle.html?dialogue=bureau&court=1&pointe=bas&t="+Date.now(),WA.room.mapURL).toString(),e.visible=!0,setTimeout(()=>{e.visible=!1},8e3)}catch(e){console.error(e)}o().catch(e=>console.error(e))}).catch(e=>console.error(e));
-//# sourceMappingURL=src-bureau_virtuel-hbc-RNNt.js.map
