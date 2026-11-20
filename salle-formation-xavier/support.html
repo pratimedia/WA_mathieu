@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support de formation · PratiSchool M@N</title>
+<!-- Ecran du formateur de la salle de formation PratiSchool (carte salle_formation.tmj).
+     Page d'attente : le lien du support peut etre colle ici par chaque participant (memorise dans son navigateur).
+     Pour un support fixe, remplacer l'URL de la propriete openWebsite de la zone "ecran_formateur" de la carte. -->
+<style>
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Regular.otf) format('opentype');font-weight:400}
+@font-face{font-family:'Gordita';src:url(supports/fonts/Gordita-Bold.otf) format('opentype');font-weight:700}
+:root{--jaune:#FDD12F;--orange:#F39200;--encre:#2E2E2E;--gris:#555;--fond:#F4F4F4;color-scheme:light}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:Gordita,system-ui,sans-serif;background:var(--fond);color:var(--encre);display:flex;flex-direction:column}
+header{background:var(--jaune);padding:14px 20px;display:flex;align-items:center;gap:14px}
+header h1{margin:0;font-size:20px}
+header p{margin:2px 0 0;font-size:13px}
+.barre{display:flex;gap:8px;padding:12px 20px;background:#fff;border-bottom:2px solid #e2e2e2;flex-wrap:wrap}
+.barre input{flex:1;min-width:220px;padding:10px 12px;border:2px solid var(--gris);border-radius:10px;font:inherit}
+.barre button{padding:10px 16px;border:0;border-radius:10px;background:var(--encre);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.barre button.sec{background:#fff;color:var(--encre);border:2px solid var(--encre)}
+main{flex:1;display:flex}
+iframe{flex:1;border:0;background:#fff}
+.attente{margin:auto;max-width:620px;padding:28px;text-align:center}
+.attente .carte{background:#fff;border:2px solid var(--encre);border-radius:16px;padding:24px;box-shadow:5px 5px 0 var(--orange)}
+.attente h2{margin:0 0 10px;font-size:20px}
+.attente p{margin:8px 0;line-height:1.5;font-size:15px}
+.astuce{font-size:13px;color:var(--gris)}
+</style>
+</head>
+<body>
+<header>
+  <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 32a3 3 0 1 0 0.1 0z" fill="#2E2E2E"/><path d="M8 22a10 10 0 0 1 10 10" stroke="#2E2E2E" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M8 14a18 18 0 0 1 18 18" stroke="#2E2E2E" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M8 6a26 26 0 0 1 26 26" stroke="#2E2E2E" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+  <div><h1>Support de formation PratiSchool</h1><p>Mon Assistant Numérique · écran du formateur</p></div>
+</header>
+<div class="barre">
+  <input id="lien" type="url" placeholder="Collez ici le lien du support (présentation, document, page web)">
+  <button id="ouvrir">Afficher</button>
+  <button id="effacer" class="sec">Effacer</button>
+</div>
+<main id="zone">
+  <div class="attente"><div class="carte">
+    <h2>Le support de la séance s'affichera ici</h2>
+    <p>Collez le lien partagé par le formateur dans le champ ci-dessus, puis cliquez sur « Afficher ». Le lien reste mémorisé pour vos prochaines ouvertures.</p>
+    <p class="astuce">Certains sites refusent l'affichage dans une autre page. Dans ce cas, le formateur peut partager son écran dans la visio de salle.</p>
+  </div></div>
+</main>
+<script>
+const zone = document.getElementById('zone'), champ = document.getElementById('lien');
+const CLE = 'pratischool_support_salle1';
+function afficher(url) {
+  if (!url) return;
+  zone.innerHTML = ''; const f = document.createElement('iframe'); f.src = url; f.allow = 'fullscreen'; zone.appendChild(f);
+}
+function lire() { try { return localStorage.getItem(CLE) || ''; } catch (e) { return ''; } }
+function ecrire(v) { try { v ? localStorage.setItem(CLE, v) : localStorage.removeItem(CLE); } catch (e) {} }
+const params = new URLSearchParams(location.search);
+const initial = params.get('url') || lire();
+if (initial) { champ.value = initial; afficher(initial); }
+document.getElementById('ouvrir').onclick = () => { const v = champ.value.trim(); if (v) { ecrire(v); afficher(v); } };
+champ.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('ouvrir').click(); });
+document.getElementById('effacer').onclick = () => { ecrire(''); champ.value = ''; location.reload(); };
+</script>
+</body>
+</html>
